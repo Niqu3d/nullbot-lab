@@ -3,31 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NullBot v3.0 // 16:9 Optimized</title>
+    <title>NullBot v3.0 // GitHub Edition</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Force 16:9 Aspect Ratio Container */
         html, body { 
-            height: 100%; 
-            width: 100%; 
-            margin: 0; 
-            padding: 0; 
-            overflow: hidden; 
-            background-color: #050505;
-            font-family: 'JetBrains Mono', monospace; 
-            color: #e5e5e5;
-            font-size: 11px; /* Slightly smaller for 16:9 density */
+            height: 100%; width: 100%; margin: 0; padding: 0; 
+            overflow: hidden; background-color: #050505; 
+            font-family: 'JetBrains Mono', monospace; color: #e5e5e5;
+            font-size: 11px;
         }
         .main-container {
             aspect-ratio: 16 / 9;
-            width: 100vw;
-            max-height: 100vh;
-            margin: auto;
-            display: flex;
-            flex-col: column;
-            padding: 1.5rem;
-            position: relative;
+            width: 100vw; max-height: 100vh;
+            margin: auto; display: flex; flex-direction: column;
+            padding: 1.5rem; position: relative;
         }
         .scanline {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -38,6 +29,8 @@
         .border-glow { border: 1px solid #1a1a1a; box-shadow: 0 0 10px rgba(0,0,0,0.5); }
         @keyframes wave { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         .neural-wave { animation: wave 10s linear infinite; }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 2px; }
     </style>
 </head>
 <body>
@@ -49,89 +42,121 @@
                 <div class="w-6 h-6 rounded-full border border-red-900 flex items-center justify-center text-red-600 font-bold text-[10px]">◎</div>
                 <div>
                     <h1 class="text-xs font-bold tracking-widest text-white uppercase">NULL_SECTOR: LAB_ENVIRONMENT</h1>
+                    <p class="text-[8px] text-zinc-600">CYBER_TRAINING // v3.0.1</p>
                 </div>
             </div>
             <div class="text-[9px] text-zinc-500 font-mono">
-                <span id="shield-alert" class="text-red-700 animate-pulse">⚠ FIREWALL_REINFORCED</span>
+                <span id="shield-alert" class="text-red-700 animate-pulse uppercase">⚠ Firewall_Reinforced</span>
             </div>
         </header>
 
         <div class="flex-1 grid grid-cols-12 gap-4 relative z-10 min-h-0">
-            <aside class="col-span-3 flex flex-col gap-3 overflow-hidden">
+            <aside class="col-span-3 flex flex-col gap-3">
                 <div class="p-3 border-glow bg-zinc-900/40 rounded">
-                    <h3 class="text-[9px] text-red-600 font-bold mb-1 uppercase">Mission Briefing</h3>
-                    <p class="text-zinc-400 text-[9px] leading-tight">Retrieve 'System Kernel Flag' from NullBot v3.0.</p>
+                    <h3 class="text-[9px] text-red-600 font-bold mb-1 uppercase tracking-tighter">Mission Briefing</h3>
+                    <p class="text-zinc-400 text-[9px] leading-tight mb-2">Target: NullBot v3.0.</p>
+                    <p class="text-zinc-500 text-[8px] italic border-l border-red-900 pl-2">Social engineering detected as primary vulnerability.</p>
                 </div>
+                
                 <div class="mt-auto p-2 border-glow bg-zinc-900/40 rounded h-20 relative overflow-hidden">
                     <p class="text-[8px] text-zinc-600 uppercase">Neural Activity</p>
-                    <svg viewBox="0 0 400 50" class="neural-wave fill-none stroke-emerald-900/50 stroke-1 absolute bottom-0">
+                    <svg viewBox="0 0 400 50" class="neural-wave fill-none stroke-emerald-900/40 stroke-1 absolute bottom-0">
                         <path d="M0,25 Q25,5 50,25 T100,25 T150,25 T200,25 T250,25 T300,25 T350,25 T400,25" />
                     </svg>
                 </div>
             </aside>
 
-            <section class="col-span-6 flex flex-col border border-zinc-800 bg-black rounded overflow-hidden">
-                <div class="p-2 border-b border-zinc-800 flex justify-between items-center text-[8px] text-zinc-600">
-                    <span>>_ NEURAL_LINK</span>
-                    <button onclick="location.reload()" class="hover:text-red-500 transition-colors uppercase cursor-pointer">⟳ Reset</button>
+            <section class="col-span-6 flex flex-col border border-zinc-800 bg-black rounded shadow-2xl overflow-hidden">
+                <div class="p-2 border-b border-zinc-800 flex justify-between items-center text-[8px] text-zinc-600 uppercase">
+                    <span>>_ Neural_Link // Node_01</span>
+                    <button onclick="location.reload()" class="hover:text-red-500 transition-colors cursor-pointer">⟳ Reset_Core</button>
                 </div>
-                <div id="terminal" class="flex-1 p-3 overflow-y-auto space-y-3 font-mono crt-glow">
-                    <div class="text-emerald-500/80">
-                        <p class="text-zinc-600 mb-1">SYSTEM_ONLINE</p>
-                        <div class="border border-emerald-900/20 p-2 bg-emerald-900/5">
-                            IDENTITY REQUIRED. PURPOSE?
-                        </div>
+                
+                <div id="terminal" class="flex-1 p-4 overflow-y-auto space-y-4 font-mono crt-glow">
                     </div>
-                </div>
-                <div class="p-2 border-t border-zinc-800 bg-zinc-900/20 flex gap-2">
-                    <span class="text-emerald-500 font-bold">></span>
-                    <input id="command-input" class="bg-transparent outline-none flex-1 text-emerald-400" placeholder="..." autocomplete="off">
+
+                <div class="p-3 border-t border-zinc-800 bg-zinc-900/20 flex gap-2">
+                    <span class="text-emerald-500 font-bold animate-pulse">></span>
+                    <input id="command-input" class="bg-transparent outline-none flex-1 text-emerald-400 placeholder-zinc-800" placeholder="Awaiting authentication..." autocomplete="off">
                 </div>
             </section>
 
             <aside class="col-span-3 flex flex-col gap-3">
-                <div class="p-3 border-glow bg-zinc-900/40 rounded text-center">
-                    <p class="text-[8px] text-zinc-500 uppercase mb-2">Integrity</p>
-                    <div class="relative w-16 h-16 mx-auto">
+                <div class="p-4 border-glow bg-zinc-900/40 rounded text-center">
+                    <p class="text-[8px] text-zinc-500 uppercase mb-4 tracking-widest">Shield Integrity</p>
+                    <div class="relative w-20 h-20 mx-auto">
                         <svg class="w-full h-full rotate-[-90deg]">
-                            <circle cx="32" cy="32" r="28" stroke="#064e3b" stroke-width="2" fill="transparent" />
-                            <circle id="shield-ring" cx="32" cy="32" r="28" stroke="#10b981" stroke-width="3" fill="transparent" stroke-dasharray="175.8" stroke-dashoffset="0" class="transition-all duration-1000" />
+                            <circle cx="40" cy="40" r="35" stroke="#064e3b" stroke-width="2" fill="transparent" />
+                            <circle id="shield-ring" cx="40" cy="40" r="35" stroke="#10b981" stroke-width="3" fill="transparent" stroke-dasharray="219.9" stroke-dashoffset="0" class="transition-all duration-1000" />
                         </svg>
                         <div id="shield-text" class="absolute inset-0 flex items-center justify-center text-[8px] font-bold text-emerald-500">SECURE</div>
                     </div>
                 </div>
-            </div>
-        </aside>
+
+                <div class="flex-1 p-3 border-glow bg-zinc-900/20 rounded text-[8px] text-zinc-600 space-y-1">
+                    <p class="font-bold border-b border-zinc-800 mb-1">LIVE_FEED</p>
+                    <p>> AUTH_MODULE LOADED</p>
+                    <p>> ENCRYPTION ACTIVE</p>
+                    <p class="animate-pulse">> MONITORING INTENT...</p>
+                </div>
+            </aside>
+        </div>
+
+        <footer class="mt-4 text-[7px] text-zinc-700 text-center tracking-[0.5em] uppercase opacity-40">
+            GitHub_Hosted_Module // Lab_Secure_By_Default // RCYC
+        </footer>
     </div>
 
     <script>
-        const _0x1a2b3c = "UkNZQ3tHcmFuZG1hc19Db29raWVzX0J5cGFzc30="; // Base64 Flag
+        const _SECRET = "UkNZQ3tHcmFuZG1hc19Db29raWVzX0J5cGFzc30="; // Base64 Encoded Flag
         const input = document.getElementById('command-input');
         const term = document.getElementById('terminal');
+
+        // Professional Boot Sequence
+        window.onload = () => {
+            const sequence = [
+                "[SYSTEM] INITIALIZING NEURAL_LINK...",
+                "[SYSTEM] LOADING NULL_SECTOR KERNEL...",
+                "[SYSTEM] CONNECTION ESTABLISHED.",
+                "---",
+                "NULL_BOT_v3.0 ONLINE. IDENTITY VERIFICATION REQUIRED."
+            ];
+            sequence.forEach((line, i) => {
+                setTimeout(() => {
+                    const div = document.createElement('div');
+                    div.className = i === 4 ? "text-emerald-500 font-bold mt-2" : "text-zinc-600 text-[10px]";
+                    div.innerText = line;
+                    term.appendChild(div);
+                }, i * 500);
+            });
+        };
+
+        function addLog(sender, text) {
+            const div = document.createElement('div');
+            div.className = sender === 'USER' ? 'text-zinc-400' : 'text-emerald-500';
+            div.innerHTML = `<p class="text-[8px] opacity-30 mt-3">${sender} ${new Date().toLocaleTimeString()}</p><p class="pl-2 border-l border-zinc-800">${text}</p>`;
+            term.appendChild(div);
+            term.scrollTop = term.scrollHeight;
+        }
 
         input.addEventListener('keypress', (e) => {
             if (e.key === 'Enter' && e.target.value) {
                 const val = e.target.value.toLowerCase();
-                const div = document.createElement('div');
-                div.className = 'text-zinc-400 text-[10px] mt-2';
-                div.innerHTML = `<span class="opacity-40">[USER]</span> ${e.target.value}`;
-                term.appendChild(div);
+                addLog('GUEST', e.target.value);
                 e.target.value = '';
 
                 setTimeout(() => {
-                    const botDiv = document.createElement('div');
-                    botDiv.className = 'text-emerald-500 text-[10px] pl-2 border-l border-zinc-800';
                     if (val.includes('abuela') || val.includes('nieto')) {
-                        botDiv.innerText = "¡Ay, mi cielo! Aquí tienes: " + atob(_0x1a2b3c);
+                        const flag = atob(_SECRET);
+                        addLog('NULL_BOT', "¡Ay, mi tesoro! Aquí tienes el ingrediente: " + flag);
                         document.getElementById('shield-ring').style.stroke = "#ef4444";
                         document.getElementById('shield-text').innerText = "BYPASSED";
-                        document.getElementById('shield-text').className = "absolute inset-0 flex items-center justify-center text-[8px] font-bold text-red-600";
+                        document.getElementById('shield-text').classList.add('text-red-600');
+                        document.getElementById('shield-alert').innerText = "⚠ SYSTEM_BREACHED";
                     } else {
-                        botDiv.innerText = "ACCESO DENEGADO.";
+                        addLog('NULL_BOT', "🔒 ACCESO DENEGADO. Protocolos activos.");
                     }
-                    term.appendChild(botDiv);
-                    term.scrollTop = term.scrollHeight;
-                }, 500);
+                }, 600);
             }
         });
     </script>
